@@ -36,10 +36,25 @@
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { MoviesPage } from "./pages/movies";
+
 import HomePage from "./pages/HomePage"; // Import HomePage to use in the Router
 import Navbar from "./components/navbar";
 
-function App() {
+import { MovieDetails } from "./pages/moviedetails";
+
+function HomePage() {
+  return (
+    <main>
+      <HeroSection />
+      <FeatureSection />
+      <MovieGrid title="NOW SHOWING" />
+      <MovieGrid title="JUST REVIEWED" />
+    </main>
+  );
+}
+
+
+function App() {https://github.com/AWAP-Group3/Frontend/pull/13/conflict?name=src%252FApp.tsx&ancestor_oid=4b4beafb25a91475c7a1667d66916daa47a418d9&base_oid=c78e75063a71832a82dc78a03886d8bf89b454b0&head_oid=85c36cbec70a0c274d37d86013e57e70302f52c6
   return (
     <Router>
       <div className="min-h-screen bg-background">
@@ -47,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} /> {/* HomePage is rendered at root path */}
           <Route path="/movies" element={<MoviesPage />} />
+          <Route path="/movie/:id" element={<MovieDetails />}></Route>
         </Routes>
       </div>
     </Router>
